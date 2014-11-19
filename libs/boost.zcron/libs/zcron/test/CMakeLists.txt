@@ -1,0 +1,25 @@
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+set (ANYTESTS FALSE)
+if ("${TESTS}" STREQUAL "all")
+  set (ANYTESTS TRUE)
+endif ()
+if ("${TESTS}" STREQUAL "test_zcron01" OR ${ANYTESTS})
+add_executable(test_zcron01 test_zcron01.cpp)
+target_link_libraries(test_zcron01 m ${Boost141_LIBRARIES})
+endif ()
+if ("${TESTS}" STREQUAL "test_zcron_schedule_instant" OR ${ANYTESTS})
+add_executable(test_zcron_schedule_instant
+  test_zcron_schedule_instant.cpp)
+target_link_libraries(test_zcron_schedule_instant m ${Boost141_LIBRARIES})
+endif ()
+if ("${TESTS}" STREQUAL "test_zcron_schedule_periodic" OR ${ANYTESTS})
+add_executable(test_zcron_schedule_periodic
+  test_zcron_schedule_periodic.cpp)
+target_link_libraries(test_zcron_schedule_periodic m ${Boost141_LIBRARIES})
+endif ()
+if ("${TESTS}" STREQUAL "test_zcron_schedule_regular" OR ${ANYTESTS})
+add_executable(test_zcron_schedule_regular
+  test_zcron_schedule_regular.cpp)
+target_link_libraries(test_zcron_schedule_regular m ${Boost141_LIBRARIES})
+endif ()
+
